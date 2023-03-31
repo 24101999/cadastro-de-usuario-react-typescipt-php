@@ -2,11 +2,16 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Form from "./components/Form";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Form></Form>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Form />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
