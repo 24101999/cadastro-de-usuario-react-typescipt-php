@@ -1,0 +1,17 @@
+.dados {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.dado {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+.dado:hover {
+  background-color: rgba(221, 221, 221, 0.295);
+}/*# sourceMappingURL=Home.module.css.map */
