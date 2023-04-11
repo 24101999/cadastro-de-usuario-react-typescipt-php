@@ -29,7 +29,7 @@ const Form = ({}: Props) => {
       })
       .then((res) => {
         if (!res.data) {
-          sessionStorage.setItem("val", res.data);
+          sessionStorage.setItem("val", "");
           nav("/");
         } else if (res.data) {
           sessionStorage.setItem("val", res.data);
