@@ -1,0 +1,34 @@
+.del {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.3882352941);
+  opacity: 1;
+  transition: all 0.4s;
+}
+
+.delN {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -2;
+  background-color: rgba(0, 0, 0, 0.3882352941);
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px;
+}/*# sourceMappingURL=Modal.module.css.map */

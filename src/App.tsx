@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Edit from "./components/admin/edit/Edit";
 import Insert from "./components/admin/insert/Insert";
+import Info from "./components/info/Info";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Form />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/dado/:id" element={<Info />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/edit/:id" element={<Edit />} />
         </Routes>
