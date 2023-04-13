@@ -109,6 +109,8 @@
   background-color: rgba(0, 0, 0, 0.3882352941);
   opacity: 1;
   transition: all 0.4s;
+  flex-direction: column;
+  color: #fff;
 }
 
 .delN {
@@ -123,4 +125,6 @@
   align-items: center;
   z-index: -2;
   background-color: rgba(0, 0, 0, 0.3882352941);
+  flex-direction: column;
+  color: #fff;
 }/*# sourceMappingURL=Home.module.css.map */

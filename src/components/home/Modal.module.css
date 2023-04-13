@@ -10,6 +10,8 @@
   background-color: rgba(0, 0, 0, 0.3882352941);
   opacity: 1;
   transition: all 0.4s;
+  flex-direction: column;
+  color: #fff;
 }
 
 .delN {
@@ -24,6 +26,8 @@
   align-items: center;
   z-index: -2;
   background-color: rgba(0, 0, 0, 0.3882352941);
+  flex-direction: column;
+  color: #fff;
 }
 
 .close {
@@ -31,4 +35,32 @@
   right: 0;
   top: 0;
   margin: 5px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+}
+.close:hover {
+  background: none;
+}
+
+.buttonsDel {
+  display: flex;
+  gap: 1rem;
+}
+
+.bt1 {
+  color: #fff;
+  background-color: green;
+}
+.bt1:hover {
+  background-color: rgba(0, 128, 0, 0.719);
+}
+
+.bt2 {
+  color: #fff;
+  background-color: red;
+}
+.bt2:hover {
+  background-color: rgba(255, 0, 0, 0.781);
 }/*# sourceMappingURL=Modal.module.css.map */

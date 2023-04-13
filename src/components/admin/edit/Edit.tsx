@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
 import styles from "./Edit.module.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { type } from "os";
 
 type Props = {};
@@ -9,25 +9,25 @@ type Props = {};
 type inputs = string | number;
 
 interface d {
-  name?: string | undefined;
+  nome?: string;
+  email?: string;
+  idade?: undefined;
 }
 
 const Edit = (props: Props) => {
   const [nome, setNome] = useState<inputs>();
   const [email, setEmail] = useState<inputs>();
   const [idade, setIdade] = useState<inputs>();
-  const [dados, setDados] = useState<d>();
-  const url = "";
+  const [dados, setDados] = useState<Array<d>>();
   const param = useParams();
   const id = param.id;
-
+  const nav = useNavigate();
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((res) => {
-        setDados(res.data);
-      });
+    axios.get(`http://localhost:1999/home/item.php?id=${id}`).then((res) => {
+      setDados(res.data);
+    });
   }, []);
+  const url = `http://localhost:1999/home/update.php?id=${id}`;
 
   const elemntos = {
     nome,
@@ -38,8 +38,7 @@ const Edit = (props: Props) => {
   const sub = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios.post(url, elemntos);
-    // console.log(dados ? dados.name : "");
-    // console.log(id);
+    nav("/home");
   };
 
   return (
@@ -51,7 +50,7 @@ const Edit = (props: Props) => {
           <input
             type="text"
             name=""
-            placeholder={dados ? dados.name : ""}
+            placeholder={dados ? dados[0].nome : ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setNome(e.target.value)
             }
@@ -62,7 +61,7 @@ const Edit = (props: Props) => {
           <input
             type="text"
             name=""
-            placeholder={dados ? dados.name : ""}
+            placeholder={dados ? dados[0].email : ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }
@@ -73,7 +72,7 @@ const Edit = (props: Props) => {
           <input
             type="text"
             name=""
-            placeholder={dados ? dados.name : ""}
+            placeholder={dados ? dados[0].idade : ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setIdade(e.target.value)
             }

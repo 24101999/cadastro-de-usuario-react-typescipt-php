@@ -66,20 +66,24 @@ const Home = ({ val }: Props) => {
     setModal(styles.insertN);
   };
 
-  const opModal = () => {
+  const opModal = (e: number | undefined) => {
     setModalDel(styles.del);
+    setId(e);
   };
+
   const closeModal = () => {
     setModalDel(styles.delN);
   };
 
-  const deletar = (e: number | undefined) => {
-    axios.delete(`http://localhost:1999/home/delete.php?id=${e}`);
+  const deletar = () => {
+    axios.delete(`http://localhost:1999/home/delete.php?id=${id}`);
     get();
+    closeModal();
   };
+
   return (
     <>
-      <Modal md={modalDel} cl={closeModal} />
+      <Modal md={modalDel} cl={closeModal} del={deletar} />
       <Insert md={modal} cl={closs} reload={get} />
       <div className={styles.elements}>
         {!valor ? (
@@ -98,36 +102,33 @@ const Home = ({ val }: Props) => {
             {user
               ? user.map((d: valores) => {
                   return (
-                    <>
-                      <div key={d.id} className={styles.dado}>
-                        <div className={styles.inpinfo}>
-                          <div className={styles.text}>
-                            <p>{d.nome}</p>
-                            <p>{d.email}</p>
-                          </div>
-
-                          <div className={styles.buttons}>
-                            <button
-                              style={{ color: "green" }}
-                              onClick={() => nav(`/edit/${d.id}`)}
-                              type="button"
-                            >
-                              <AiFillEdit />
-                            </button>
-                            <button
-                              style={{ color: "red" }}
-                              onClick={() => opModal()}
-                              typeof="button"
-                            >
-                              <AiFillDelete />
-                            </button>
-                          </div>
+                    <div key={d.id} className={styles.dado}>
+                      <div className={styles.inpinfo}>
+                        <div className={styles.text}>
+                          <p>{d.nome}</p>
                         </div>
-                        <button onClick={() => nav(`/dado/${d.id}`)}>
-                          Dados completos
-                        </button>
+
+                        <div className={styles.buttons}>
+                          <button
+                            style={{ color: "green" }}
+                            onClick={() => nav(`/edit/${d.id}`)}
+                            type="button"
+                          >
+                            <AiFillEdit />
+                          </button>
+                          <button
+                            style={{ color: "red" }}
+                            onClick={() => opModal(d.id)}
+                            typeof="button"
+                          >
+                            <AiFillDelete />
+                          </button>
+                        </div>
                       </div>
-                    </>
+                      <button onClick={() => nav(`/dado/${d.id}`)}>
+                        Dados completos
+                      </button>
+                    </div>
                   );
                 })
               : ""}
