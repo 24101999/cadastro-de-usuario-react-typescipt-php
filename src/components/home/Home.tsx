@@ -84,9 +84,7 @@ const Home = ({ val }: Props) => {
     axios.delete(
       `https://henriquedeveloper.com.br/backend-cadastro/home/delete.php?id=${id}`
     );
-    setTimeout(() => {
-      get();
-    }, 500);
+    get();
     closeModal();
   };
 
