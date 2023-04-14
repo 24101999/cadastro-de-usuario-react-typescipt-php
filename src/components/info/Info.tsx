@@ -10,10 +10,12 @@ interface d {
   nome?: string;
   email?: string;
   idade?: number;
+  img?: string;
 }
 
 const Info = () => {
   const [dados, setDados] = useState<Array<d>>();
+  const [loading, setLoading] = useState<boolean>(true);
   const nav = useNavigate();
   const p = useParams();
   const id = p.id;
@@ -25,13 +27,16 @@ const Info = () => {
   }, []);
 
   return (
-    <div className={styles.item} style={{ backgroundImage: `url(${img})` }}>
+    <div
+      className={styles.item}
+      style={{ backgroundImage: `url(${dados ? dados[0].img : ""})` }}
+    >
       <button className={styles.back} onClick={() => nav("/home")}>
         <BiLeftArrow />
       </button>
       <div className={styles.block}>
         <div className={styles.elements}>
-          <img src={img} alt="" />
+          <img src={dados ? dados[0].img : ""} alt="" />
           <h3>Nome</h3>
           <p>{dados ? dados[0].nome : ""}</p>
           <div className={styles.line}></div>

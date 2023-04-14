@@ -29,6 +29,7 @@ const Home = ({ val }: Props) => {
   const [valor] = useState<boolean | string | null>(
     sessionStorage.getItem("val")
   );
+  const [loading, setLoading] = useState<boolean>(false);
   const [dados, setDados] = useState<Array<valores>>();
   const [id, setId] = useState<number | undefined | string>(n);
   const [scarch, setScarch] = useState("");
@@ -91,8 +92,11 @@ const Home = ({ val }: Props) => {
         ) : (
           <div className={styles.dados}>
             <label>
-              <span>buscar usuario</span>
+              <span>
+                <strong>Buscar usuario pelo nome</strong>
+              </span>
               <input
+                className={styles.inputPes}
                 type="search"
                 value={scarch}
                 onChange={(e) => setScarch(e.target.value)}
@@ -132,6 +136,7 @@ const Home = ({ val }: Props) => {
                   );
                 })
               : ""}
+            {/* {dados?.length === 0 ? setLoading(true) : ""} */}
           </div>
         )}
       </div>

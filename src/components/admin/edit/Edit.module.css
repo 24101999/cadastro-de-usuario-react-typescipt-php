@@ -9,7 +9,14 @@
   justify-content: center;
 }
 .edit form {
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.edit form input {
+  padding: 2px;
+  margin: 1px;
 }/*# sourceMappingURL=Edit.module.css.map */

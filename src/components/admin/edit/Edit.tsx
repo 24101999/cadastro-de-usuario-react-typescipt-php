@@ -6,7 +6,7 @@ import { type } from "os";
 
 type Props = {};
 
-type inputs = string | number;
+type inputs = string;
 
 interface d {
   nome?: string;
@@ -15,9 +15,10 @@ interface d {
 }
 
 const Edit = (props: Props) => {
-  const [nome, setNome] = useState<inputs>();
-  const [email, setEmail] = useState<inputs>();
-  const [idade, setIdade] = useState<inputs>();
+  const [nome, setNome] = useState<inputs>("");
+  const [img, setImg] = useState<File | null>();
+  const [email, setEmail] = useState<inputs>("");
+  const [idade, setIdade] = useState<inputs>("");
   const [dados, setDados] = useState<Array<d>>();
   const param = useParams();
   const id = param.id;
@@ -33,18 +34,53 @@ const Edit = (props: Props) => {
     nome,
     email,
     idade,
+    img,
   };
+
+  const regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const regEx = /^[a-z à-ú À-Ú]+$/i;
+  const regExNum = /^[0-9]+$/i;
 
   const sub = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post(url, elemntos);
+    if (!nome || !img || !email || !idade) {
+      return;
+    } else if (!regEx.test(nome)) {
+      alert("Isso não é um nome");
+      return;
+    } else if (!regEmail.test(email)) {
+      alert("Tipo de email incorreto");
+      return;
+    } else if (!regExNum.test(idade)) {
+      alert("Só é valido numero");
+      return;
+    }
+    axios.post(url, elemntos, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     nav("/home");
+    alert("Editado com sucesso");
+    if (!nome || !email || !idade || !img) {
+      nav(`/edit/${id}`);
+    }
   };
 
   return (
     <div className={styles.edit}>
       <h1>EDITAR</h1>
       <form onSubmit={sub}>
+        <label>
+          <span>Imagem</span>
+          <input
+            type="file"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              if (!e.target.files) return;
+              setImg(e.target.files[0]);
+            }}
+          />
+        </label>
         <label>
           <span>Nome</span>
           <input

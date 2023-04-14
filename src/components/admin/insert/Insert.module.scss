@@ -12,6 +12,12 @@
   background-color: #00000081;
   color: #fff;
   z-index: 5;
+
+  form {
+    input {
+      color: #fff;
+    }
+  }
 }
 .insertN {
   transition: all 0.4s;
@@ -27,6 +33,12 @@
   justify-content: center;
   background-color: #00000081;
   color: #fff;
+
+  form {
+    input {
+      color: #fff;
+    }
+  }
 }
 
 .close {

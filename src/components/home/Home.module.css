@@ -65,6 +65,13 @@
   flex-direction: column;
 }
 
+.inputPes {
+  outline: none;
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
 .insert {
   opacity: 1;
   position: fixed;
@@ -79,6 +86,20 @@
   background-color: rgba(0, 0, 0, 0.5058823529);
   color: #fff;
   z-index: 5;
+}
+.insert form {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid;
+}
+.insert form input {
+  color: #fff;
+}
+.insert form input::-moz-placeholder {
+  color: #e4e4e4;
+}
+.insert form input::placeholder {
+  color: #e4e4e4;
 }
 
 .insertN {
@@ -95,6 +116,20 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5058823529);
   color: #fff;
+}
+.insertN form {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.insertN form input {
+  color: #fff;
+}
+.insertN form input::-moz-placeholder {
+  color: #c2c2c2;
+}
+.insertN form input::placeholder {
+  color: #c2c2c2;
 }
 
 .del {

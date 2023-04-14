@@ -61,6 +61,12 @@
   display: flex;
   flex-direction: column;
 }
+.inputPes {
+  outline: none;
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+}
 
 // insert
 // insert
@@ -80,6 +86,18 @@
   background-color: #00000081;
   color: #fff;
   z-index: 5;
+
+  form {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid;
+    input {
+      color: #fff;
+      &::placeholder {
+        color: #e4e4e4;
+      }
+    }
+  }
 }
 .insertN {
   transition: all 0.4s;
@@ -95,6 +113,18 @@
   justify-content: center;
   background-color: #00000081;
   color: #fff;
+
+  form {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    input {
+      color: #fff;
+      &::placeholder {
+        color: #c2c2c2;
+      }
+    }
+  }
 }
 
 // insert

@@ -35,6 +35,12 @@ form {
   align-items: center;
   gap: 5px;
 }
+form input {
+  border-radius: 5px;
+  border: 1px solid;
+  background: none;
+  outline: none;
+}
 
 label {
   display: flex;

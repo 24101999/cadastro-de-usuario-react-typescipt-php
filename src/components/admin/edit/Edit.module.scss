@@ -8,8 +8,15 @@
   align-items: center;
   justify-content: center;
   form {
+    border: 1px solid;
+    padding: 1rem;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    input {
+      padding: 2px;
+      margin: 1px;
+    }
   }
 }

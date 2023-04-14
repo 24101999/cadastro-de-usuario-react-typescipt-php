@@ -11,6 +11,7 @@ type inputs = string | number;
 const Cadastro = ({}: Props) => {
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  const [msg, setMsg] = useState<string>();
   const regExStr = /^[a-z 0-9]?/i;
   const regExEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+?$/i;
 
@@ -23,7 +24,11 @@ const Cadastro = ({}: Props) => {
       senha: senha,
     };
 
-    if (!regExEmail.test(email) || !email) {
+    if (!email || !senha) {
+      setMsg("campo vazio");
+      nav("/cadastro");
+    } else if (!regExEmail.test(email) || !email) {
+      alert("E-mail ou senha invalido");
       nav("/cadastro");
     } else if (!regExStr.test(senha) || !senha) {
       nav("/cadastro");
@@ -38,6 +43,7 @@ const Cadastro = ({}: Props) => {
             nav("/cadastro");
           } else {
             nav("/");
+            alert("Cadastrado com sucesso");
           }
         });
     }
@@ -50,6 +56,7 @@ const Cadastro = ({}: Props) => {
         <label>
           <span>Email</span>
           <input
+            placeholder={msg}
             type="text"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
@@ -59,6 +66,7 @@ const Cadastro = ({}: Props) => {
         <label>
           <span>Senha</span>
           <input
+            placeholder={msg}
             type="text"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setSenha(e.target.value)
