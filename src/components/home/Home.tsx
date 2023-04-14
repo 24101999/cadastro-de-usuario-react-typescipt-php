@@ -44,7 +44,7 @@ const Home = ({ val }: Props) => {
   const nav = useNavigate();
   useEffect(() => {
     axios
-      .get("https://henriquedeveloper.com.br/backend-cadastro/home")
+      .get("https://henriquedeveloper.com.br/backend-cadastro/home/")
       .then((res) => {
         setDados(res.data);
       });
@@ -56,7 +56,7 @@ const Home = ({ val }: Props) => {
   const get = () => {
     setTimeout(() => {
       axios
-        .get("https://henriquedeveloper.com.br/backend-cadastro/home")
+        .get("https://henriquedeveloper.com.br/backend-cadastro/home/")
         .then((res) => {
           setDados(res.data);
         });
