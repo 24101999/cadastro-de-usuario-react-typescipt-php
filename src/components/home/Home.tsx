@@ -86,7 +86,7 @@ const Home = ({ val }: Props) => {
     );
     setTimeout(() => {
       get();
-    }, 5000);
+    }, 500);
     closeModal();
   };
 
