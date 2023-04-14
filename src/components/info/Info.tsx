@@ -21,9 +21,13 @@ const Info = () => {
   const id = p.id;
 
   useEffect(() => {
-    axios.get(`http://localhost:1999/home/item.php?id=${id}`).then((res) => {
-      setDados(res.data);
-    });
+    axios
+      .get(
+        `https://henriquedeveloper.com.br/backend-cadastro/home/item.php?id=${id}`
+      )
+      .then((res) => {
+        setDados(res.data);
+      });
   }, []);
 
   return (

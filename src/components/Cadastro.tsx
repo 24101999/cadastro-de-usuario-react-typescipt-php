@@ -34,10 +34,13 @@ const Cadastro = ({}: Props) => {
       nav("/cadastro");
     } else {
       axios
-        .post("http://localhost:1999/login/insert.php", {
-          email: email,
-          senha: senha,
-        })
+        .post(
+          "https://henriquedeveloper.com.br/backend-cadastro/login/insert.php",
+          {
+            email: email,
+            senha: senha,
+          }
+        )
         .then((res) => {
           if (res.data) {
             nav("/cadastro");

@@ -24,11 +24,15 @@ const Edit = (props: Props) => {
   const id = param.id;
   const nav = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:1999/home/item.php?id=${id}`).then((res) => {
-      setDados(res.data);
-    });
+    axios
+      .get(
+        `https://henriquedeveloper.com.br/backend-cadastro/home/item.php?id=${id}`
+      )
+      .then((res) => {
+        setDados(res.data);
+      });
   }, []);
-  const url = `http://localhost:1999/home/update.php?id=${id}`;
+  const url = `https://henriquedeveloper.com.br/backend-cadastro/home/update.php?id=${id}`;
 
   const elemntos = {
     nome,

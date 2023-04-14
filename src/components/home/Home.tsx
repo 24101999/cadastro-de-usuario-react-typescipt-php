@@ -43,9 +43,11 @@ const Home = ({ val }: Props) => {
 
   const nav = useNavigate();
   useEffect(() => {
-    axios.get("http://localhost:1999/home").then((res) => {
-      setDados(res.data);
-    });
+    axios
+      .get("https://henriquedeveloper.com.br/backend-cadastro/home")
+      .then((res) => {
+        setDados(res.data);
+      });
     if (!valor) {
       nav("/");
     }
@@ -53,9 +55,11 @@ const Home = ({ val }: Props) => {
 
   const get = () => {
     setTimeout(() => {
-      axios.get("http://localhost:1999/home").then((res) => {
-        setDados(res.data);
-      });
+      axios
+        .get("https://henriquedeveloper.com.br/backend-cadastro/home")
+        .then((res) => {
+          setDados(res.data);
+        });
     }, 300);
   };
 
@@ -77,7 +81,9 @@ const Home = ({ val }: Props) => {
   };
 
   const deletar = () => {
-    axios.delete(`http://localhost:1999/home/delete.php?id=${id}`);
+    axios.delete(
+      `https://henriquedeveloper.com.br/backend-cadastro/home/delete.php?id=${id}`
+    );
     get();
     closeModal();
   };

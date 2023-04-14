@@ -26,7 +26,7 @@ const Form = ({}: Props) => {
   const sub = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post("http://localhost:1999/login/val.php", {
+      .post("https://henriquedeveloper.com.br/backend-cadastro/login/val.php", {
         email: email,
         senha: senha,
       })

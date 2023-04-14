@@ -19,8 +19,9 @@ const Insert = ({ md, cl, reload }: Props) => {
   const [idade, setIdade] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
   const [modal, setModal] = useState(styles.insertN);
-  // const url = "http://localhost:1999/home/insert.php";
-  const url = "http://localhost:1999/home/insert.php";
+  // const url = "https://henriquedeveloper.com.br/backend-cadastro/home/insert.php";
+  const url =
+    "https://henriquedeveloper.com.br/backend-cadastro/home/insert.php";
   const dados = {
     nome,
     email,
