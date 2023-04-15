@@ -12,6 +12,7 @@ type Props = {
   val?: string;
   // a?: number | boolean;
 };
+
 interface valores {
   id?: number;
   nome?: string;
@@ -61,7 +62,7 @@ const Home = ({ val }: Props) => {
         .then((res) => {
           setDados(res.data);
         });
-    }, 300);
+    }, 500);
   };
 
   const open = () => {
