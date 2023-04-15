@@ -61,6 +61,7 @@ const Insert = ({ md, cl, reload }: Props) => {
     setEmail("");
     setNome("");
     setIdade("");
+    setImg(null);
     cl();
     reload();
     alert("Cadastrado com sucesso");
