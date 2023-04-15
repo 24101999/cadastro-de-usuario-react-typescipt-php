@@ -30,9 +30,6 @@ const Home = ({ val }: Props) => {
     sessionStorage.getItem("val")
   );
 
-  const [nome] = useState<p>();
-  const [email] = useState<p>();
-  const [idade] = useState<p>();
   const [loading, setLoading] = useState<boolean>(false);
   const [dados, setDados] = useState<Array<valores>>();
   const [id, setId] = useState<number | undefined | string>(n);
