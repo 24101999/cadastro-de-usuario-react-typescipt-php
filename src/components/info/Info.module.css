@@ -64,4 +64,10 @@
   border: 1px solid;
   border-radius: 10px;
   gap: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .item img {
+    height: 130px;
+  }
 }/*# sourceMappingURL=Info.module.css.map */
