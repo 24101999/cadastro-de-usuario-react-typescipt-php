@@ -30,6 +30,9 @@ const Home = ({ val }: Props) => {
     sessionStorage.getItem("val")
   );
 
+  const [nome] = useState<p>();
+  const [email] = useState<p>();
+  const [idade] = useState<p>();
   const [loading, setLoading] = useState<boolean>(false);
   const [dados, setDados] = useState<Array<valores>>();
   const [id, setId] = useState<number | undefined | string>(n);
@@ -80,16 +83,16 @@ const Home = ({ val }: Props) => {
   const closeModal = () => {
     setModalDel(styles.delN);
   };
-
   const deletar = () => {
+    const d: object = {
+      nome: "nome",
+      email: "email",
+      idade: "idade",
+    };
     axios.delete(
-      `https://henriquedeveloper.com.br/backend-cadastro/home/delete.php?id=${id}`
-    ),
-      {
-        nome: "nome",
-        email: "email",
-        idade: "idade",
-      };
+      `https://henriquedeveloper.com.br/backend-cadastro/home/delete.php?id=${id}`,
+      d
+    );
     get();
     closeModal();
   };
