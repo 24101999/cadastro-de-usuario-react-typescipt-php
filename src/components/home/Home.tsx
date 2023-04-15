@@ -148,7 +148,6 @@ const Home = ({ val }: Props) => {
                   );
                 })
               : ""}
-            {/* {dados?.length === 0 ? setLoading(true) : ""} */}
           </div>
         )}
       </div>
