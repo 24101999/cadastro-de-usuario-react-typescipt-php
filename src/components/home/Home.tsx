@@ -83,12 +83,12 @@ const Home = ({ val }: Props) => {
   const closeModal = () => {
     setModalDel(styles.delN);
   };
+  const d: object = {
+    nome: "nome",
+    email: "email",
+    idade: "idade",
+  };
   const deletar = () => {
-    const d: object = {
-      nome: "nome",
-      email: "email",
-      idade: "idade",
-    };
     axios.delete(
       `https://henriquedeveloper.com.br/backend-cadastro/home/delete.php?id=${id}`,
       d
