@@ -7,6 +7,7 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import img from "../../logo.svg";
 import Insert from "../admin/insert/Insert";
 import Modal from "./Modal";
+import Loading from "../../Loading";
 
 type Props = {
   val?: string;
@@ -45,11 +46,14 @@ const Home = ({ val }: Props) => {
 
   const nav = useNavigate();
   useEffect(() => {
-    axios
-      .get("https://henriquedeveloper.com.br/backend-cadastro/home/")
-      .then((res) => {
-        setDados(res.data);
-      });
+    setTimeout(() => {
+      axios
+        .get("https://henriquedeveloper.com.br/backend-cadastro/home/")
+        .then((res) => {
+          setDados(res.data);
+          setLoading(true);
+        });
+    }, 1000);
     if (!valor) {
       nav("/");
     }
@@ -148,6 +152,7 @@ const Home = ({ val }: Props) => {
                   );
                 })
               : ""}
+            {!loading ? <Loading /> : ""}
           </div>
         )}
       </div>

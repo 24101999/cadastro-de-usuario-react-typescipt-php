@@ -1,0 +1,14 @@
+.loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    background: none;
+    height: 100px;
+  }
+}

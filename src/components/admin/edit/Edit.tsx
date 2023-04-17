@@ -20,6 +20,7 @@ const Edit = (props: Props) => {
   const [email, setEmail] = useState<inputs>("");
   const [idade, setIdade] = useState<inputs>("");
   const [dados, setDados] = useState<Array<d>>();
+  const [msgi, setMsgi] = useState<string>("");
   const param = useParams();
   const id = param.id;
   const nav = useNavigate();
@@ -50,13 +51,13 @@ const Edit = (props: Props) => {
     if (!nome || !img || !email || !idade) {
       return;
     } else if (!regEx.test(nome)) {
-      alert("Isso não é um nome");
+      setMsgi("Digite um nome valido");
       return;
     } else if (!regEmail.test(email)) {
-      alert("Tipo de email incorreto");
+      setMsgi("Digite um e-mail valido");
       return;
     } else if (!regExNum.test(idade)) {
-      alert("Só é valido numero");
+      setMsgi("Digite uma idade valida");
       return;
     }
     axios.post(url, elemntos, {
@@ -74,6 +75,7 @@ const Edit = (props: Props) => {
   return (
     <div className={styles.edit}>
       <h1>EDITAR</h1>
+      <h2>{msgi}</h2>
       <form onSubmit={sub}>
         <label>
           <span>Imagem</span>

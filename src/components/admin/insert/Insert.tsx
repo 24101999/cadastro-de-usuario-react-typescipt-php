@@ -18,6 +18,8 @@ const Insert = ({ md, cl, reload }: Props) => {
   const [email, setEmail] = useState<i>("");
   const [idade, setIdade] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
+  const [msgi, setMsgi] = useState<string>("");
+
   const [modal, setModal] = useState(styles.insertN);
   // const url = "https://henriquedeveloper.com.br/backend-cadastro/home/insert.php";
   const url =
@@ -31,12 +33,8 @@ const Insert = ({ md, cl, reload }: Props) => {
 
   const regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   const regEx = /^[a-z à-ú À-Ú]+$/i;
-  const regExNum = /^[0-9]+$/i;
-  const handImg = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    // setImg(files?.item(0)?.name);
-    console.log(img);
-  };
+  const regExNum = /^[0-9 ]+$/i;
+
   const sub = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -44,13 +42,13 @@ const Insert = ({ md, cl, reload }: Props) => {
       setMsg("campo vazio");
       return;
     } else if (!regEx.test(nome)) {
-      alert("Isso não é um nome");
+      setMsgi("Digite um nome valido");
       return;
     } else if (!regEmail.test(email)) {
-      alert("Tipo de email incorreto");
+      setMsgi("Digite um e-mail valido");
       return;
     } else if (!regExNum.test(idade)) {
-      alert("Só é valido numero");
+      setMsgi("Digite uma idade valida");
       return;
     }
     axios.post(url, dados, {
@@ -73,6 +71,7 @@ const Insert = ({ md, cl, reload }: Props) => {
         <AiOutlineCloseCircle />
       </button>
       <h1>Cadastro</h1>
+      <h2>{msgi}</h2>
       <form onSubmit={sub}>
         <label>
           <span>Imagem</span>
